@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Sec from "../../directory.data";
 import MenuItem from "../menu-item/menu-item";
 
 class Directory extends Component {
@@ -26,11 +25,11 @@ class Directory extends Component {
           linkUrl: "shop/sneakers",
         },
         {
-          title: "womens",
+          title: "women",
           imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
           size: "large",
           id: 4,
-          linkUrl: "shop/womens",
+          linkUrl: "shop/women",
         },
         {
           title: "mens",
@@ -46,10 +45,8 @@ class Directory extends Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({ title, key, imageUrl, size }) => {
-          return (
-            <MenuItem key={key} title={title} imageUrl={imageUrl} size={size} />
-          );
+        {this.state.sections.map(({ key, ...otherSectionProps }) => {
+          return <MenuItem key={key} {...otherSectionProps} />;
         })}
       </div>
     );
